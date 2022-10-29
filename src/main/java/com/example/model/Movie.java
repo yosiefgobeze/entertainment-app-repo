@@ -1,36 +1,23 @@
 package com.example.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Movie {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private String name;
+    private String language;
+    private String type;
+    private double rate;
 
-    @Column
-    String name;
-
-    @Column
-    String language;
-
-    @Column
-    String type;
-
-    @Column
-    double rate;
-
-    @Column
-    String imageUrl;
-
-    public Movie(int id, String name, String language, String type, double rate, String imageUrl) {
+    public Movie(int id, String name, String language, String type, double rate) {
         this.id = id;
         this.name = name;
         this.language = language;
         this.type = type;
         this.rate = rate;
-        this.imageUrl = imageUrl;
     }
 
     public Movie(){
@@ -77,11 +64,4 @@ public class Movie {
         this.rate = rate;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 }
