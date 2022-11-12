@@ -21,28 +21,28 @@ public class MovieServiceImpl {
 
 
     public String welcomeMsg() {
-        LOGGER.info("inside welcomeMsg service ...");
+        LOGGER.info("*** inside welcomeMsg service ...");
         return "Welcome to Spring boot services / Entertainment application";
     }
 
 
     public ArrayList<Movie> getMovies() {
-        LOGGER.info("inside getMovies service ...");
+        LOGGER.info("*** inside getMovies service ...");
         ArrayList<Movie> movie = (ArrayList<Movie>)movieRepository.findAll();
         return movie;
     }
 
 
     public Movie getMovieById(String id) {
-        LOGGER.info("inside getMovieById service ...");
+        LOGGER.info("*** inside getMovieById service ...");
         Optional<Movie> movie = movieRepository.findById(Integer.parseInt(id));
         return movie.get();
     }
 
 
     public String insertMovie(Movie movie) {
-        LOGGER.info("inside insertMovie service ...");
+        LOGGER.info("*** inside insertMovie service ...");
         movieRepository.save(movie);
-        return "Movie inserted successfully ...";
+        return "*** Movie inserted successfully ...";
     }
 }
